@@ -1,15 +1,23 @@
-.form__header{
-    border-radius: 7px;
+.form__header {
+  border-radius: 7px;
 }
-.font-14{
-    font-size: 14px;
+.font-14 {
+  font-size: 14px;
 }
-.fw-600{
-    font-weight: 600;
+.fw-600 {
+  font-weight: 600;
 }
-input[type="date"]::-webkit-input-placeholder{ 
-    visibility: hidden !important;
+input[type="date"]::-webkit-input-placeholder {
+  visibility: hidden !important;
 }
-.MuiRadio-colorSecondary.Mui-checked, .MuiCheckbox-colorSecondary.Mui-checked{
-    color: rgb(103, 58, 183) !important;
+.MuiRadio-colorSecondary.Mui-checked,
+.MuiCheckbox-colorSecondary.Mui-checked {
+  color: rgb(103, 58, 183) !important;
+}
+.btn-custom {
+  color: rgb(103, 58, 183) !important;
+  font-weight: 500;
+}
+.btn-custom:hover {
+  background-color: rgba(181, 150, 238, 0.1) !important;
 }

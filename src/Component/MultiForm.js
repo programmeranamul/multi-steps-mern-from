@@ -3,30 +3,35 @@ import { useState } from "react";
 import { Alert } from "react-bootstrap";
 import GenarelDetails from "./GenarelDetails";
 import { initaleData } from "./InitailDataAndFunc";
+import QuestionForRelations from "./QuestionForRelations";
 
 const MultiForm = () => {
   const [states, setStates] = useState(initaleData);
 
   // process next stape
   const next = () => {
-    const { stape } = states;
-    setStates({ ...states, stape: stape + 1 });
+    const { step } = states;
+    setStates({ ...states, step: step + 1 });
   };
 
   // process previous stape
   const previous = () => {
-    const { stape } = states;
-    setStates({ ...states, stape: stape - 1 });
+    const { step } = states;
+    setStates({ ...states, step: step - 1 });
   };
 
   // handel filed change
   const handelChange = (e) => {
     if (e.target.type === "checkbox") {
       const namess = e?.target?.name;
-      const found = states[namess].find(
-        (element) => element === e.target.value
-      );
+      // const found = states[namess].find(
+      //   (element) => element === e.target.value
+      // );
+      console.log(namess)
       if (e.target.checked) {
+        const found = states[namess].find(
+          (element) => element === e.target.value
+        );
         if (!found) {
           setStates({
             ...states,
@@ -34,6 +39,9 @@ const MultiForm = () => {
           });
         }
       } else {
+        const found = states[namess].find(
+          (element) => element === e.target.value
+        );
         const filter = states[namess].filter((element) => element !== found);
         setStates({ ...states, [e.target.name]: filter });
       }
@@ -60,7 +68,7 @@ const MultiForm = () => {
     weekSports,
     eatHealthy,
     meditate,
-    drawer,
+    drawerWrite,
     smoke,
     likeDoAtWork,
     drink,
@@ -79,7 +87,7 @@ const MultiForm = () => {
     weekSports,
     eatHealthy,
     meditate,
-    drawer,
+    drawerWrite,
     smoke,
     likeDoAtWork,
     drink,
@@ -92,7 +100,7 @@ const MultiForm = () => {
         <GenarelDetails value={value} handelChange={handelChange} next={next} />
       );
     case 2:
-      return <h1>This is step 2</h1>;
+      return <QuestionForRelations value={value} handelChange={handelChange} next={next} previous={previous}/>;
     default:
       break;
   }

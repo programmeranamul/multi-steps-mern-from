@@ -8,13 +8,13 @@ export const initaleData = {
   sex: "",
   heightInCm: "",
   lifestyle: "",
-  weekSports: [],
+  weekSports: "",
   eatHealthy: "",
   meditate: "",
   drawer: "",
   smoke: "",
   likeDoAtWork: "",
   drink: "",
-  listenInSpareTime: "",
+  listenInSpareTime: [],
 };
 
