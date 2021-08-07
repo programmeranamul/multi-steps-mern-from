@@ -1,0 +1,20 @@
+export const initaleData = {
+  step: 1,
+  generalDetails: "",
+  firstName: "",
+  lastName: "",
+  dateOfBirth: "",
+  residence: "",
+  sex: "",
+  heightInCm: "",
+  lifestyle: "",
+  weekSports: [],
+  eatHealthy: "",
+  meditate: "",
+  drawer: "",
+  smoke: "",
+  likeDoAtWork: "",
+  drink: "",
+  listenInSpareTime: "",
+};
+

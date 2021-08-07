@@ -1,0 +1,15 @@
+.form__header{
+    border-radius: 7px;
+}
+.font-14{
+    font-size: 14px;
+}
+.fw-600{
+    font-weight: 600;
+}
+input[type="date"]::-webkit-input-placeholder{ 
+    visibility: hidden !important;
+}
+.MuiRadio-colorSecondary.Mui-checked, .MuiCheckbox-colorSecondary.Mui-checked{
+    color: rgb(103, 58, 183) !important;
+}
