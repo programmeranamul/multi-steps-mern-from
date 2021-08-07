@@ -3,7 +3,8 @@ import { useState } from "react";
 import { Alert } from "react-bootstrap";
 import GenarelDetails from "./GenarelDetails";
 import { initaleData } from "./InitailDataAndFunc";
-import QuestionForRelations from "./QuestionForRelations";
+import StapeTwo from "./StapeTwo";
+import StapeThree from './StapeThree';
 
 const MultiForm = () => {
   const [states, setStates] = useState(initaleData);
@@ -27,7 +28,7 @@ const MultiForm = () => {
       // const found = states[namess].find(
       //   (element) => element === e.target.value
       // );
-      console.log(namess)
+      console.log(namess);
       if (e.target.checked) {
         const found = states[namess].find(
           (element) => element === e.target.value
@@ -50,57 +51,37 @@ const MultiForm = () => {
 
       return;
     }
-    console.log("Change")
+    console.log("Change");
     setStates({ ...states, [e.target.name]: e.target.value });
   };
   console.log(states);
 
-  const {
-    step,
-    generalDetails,
-    firstName,
-    lastName,
-    dateOfBirth,
-    residence,
-    sex,
-    heightInCm,
-    lifestyle,
-    weekSports,
-    eatHealthy,
-    meditate,
-    drawerWrite,
-    smoke,
-    likeDoAtWork,
-    drink,
-    listenInSpareTime,
-  } = states;
-  const value = {
-    step,
-    generalDetails,
-    firstName,
-    lastName,
-    dateOfBirth,
-    residence,
-    sex,
-    heightInCm,
-    lifestyle,
-    weekSports,
-    eatHealthy,
-    meditate,
-    drawerWrite,
-    smoke,
-    likeDoAtWork,
-    drink,
-    listenInSpareTime,
-  };
 
+  const { step } = states;
+  const value = states;
   switch (step) {
     case 1:
       return (
         <GenarelDetails value={value} handelChange={handelChange} next={next} />
       );
     case 2:
-      return <QuestionForRelations value={value} handelChange={handelChange} next={next} previous={previous}/>;
+      return (
+        <StapeTwo
+          value={value}
+          handelChange={handelChange}
+          next={next}
+          previous={previous}
+        />
+      );
+      case 3:
+        return (
+          <StapeThree 
+            value={value}
+            handelChange={handelChange}
+            next={next}
+            previous={previous}
+          />
+        );
     default:
       break;
   }

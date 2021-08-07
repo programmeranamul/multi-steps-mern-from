@@ -14,10 +14,16 @@ input[type="date"]::-webkit-input-placeholder {
 .MuiCheckbox-colorSecondary.Mui-checked {
   color: rgb(103, 58, 183) !important;
 }
+.custom-color {
+  color: rgb(103, 58, 183) !important;
+}
 .btn-custom {
   color: rgb(103, 58, 183) !important;
   font-weight: 500;
 }
 .btn-custom:hover {
   background-color: rgba(181, 150, 238, 0.1) !important;
+}
+.fs-12{
+  font-size: 12px !important;
 }
