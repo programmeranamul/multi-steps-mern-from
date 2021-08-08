@@ -1,8 +1,11 @@
-.form__header {
+.form__header, .roubded-7px {
   border-radius: 7px;
 }
 .font-14 {
   font-size: 14px;
+}
+.fs-12{
+  font-size: 12px;
 }
 .fw-600 {
   font-weight: 600;
@@ -27,9 +30,6 @@ input[type="date"]::-webkit-input-placeholder {
 .fs-12 {
   font-size: 12px !important;
 }
-/* .control-row{
-  flex-direction: row !important;
-} */
 
 .error {
   border: 1px solid red;
@@ -40,6 +40,37 @@ input[type="date"]::-webkit-input-placeholder {
 .error .MuiInput-underline:before {
   border-bottom: 1px solid red !important;
 }
-.border-red{
-  border: .2px solid #d93025 !important;
+.border-red {
+  border: 0.2px solid #d93025 !important;
+}
+
+.linkBtn {
+  background: none;
+  border: none;
+  text-decoration: underline;
+  color: #1a73e8;
+  cursor: pointer;
+  outline: none;
+}
+.before__border {
+  position: relative;
+}
+.before__border::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 10px;
+  background-color: rgb(103, 58, 183);
+  padding: 0 !important;
+  left: 0;
+  border-top-left-radius: 7px;
+  top: 0;
+  border-top-right-radius: 9px;
+}
+.custom-bg{  
+  background-color: rgb(103, 58, 183) !important;
+  
+}
+.sub_head_title{
+  border-radius: 7px 7px 0 0 ;
 }

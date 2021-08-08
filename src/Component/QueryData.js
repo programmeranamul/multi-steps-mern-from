@@ -1,38 +1,3 @@
-// export const genaredDataList = [
-//   { label: "פרטיים כלליים" },
-//   {
-//     label: "שם פרטי",
-//     require: "true",
-//     name:"generalDetails",
-//     input: {
-//       type: "text",
-//     },
-//   },
-//   {
-//     label: "תאריך לידה",
-//     name:"dateOfBirth",
-//     input: {
-//       type: "date",
-//     },
-//   },
-//   {
-//     label: "תאריך לידהכמה פעמיים את/ה עושה ספורט בשבוע",
-//     name:"sex",
-//     input: {
-//       type: "radio",
-//       options: ["לא עושה", "בין פעם לפעמיים", "בין פעמיים לשלוש"],
-//     },
-//   },
-//   {
-//     label:
-//       "תאריך לידהכמה פעמיים את/ה עושה ספורט בשבועלמה את/ה נוהג/ת להאזין בשעות הפנא",
-//       name:"weekSports",
-//     input: {
-//       type: "checkbox",
-//       options: ["רדיו", "מוזיקה", "הרצאות", "פודקאסט"],
-//     },
-//   },
-// ];
 
 export const genaredDataList = [
   { label: "פרטיים כלליים" },
@@ -364,6 +329,7 @@ export const stapeThreeDataList = [
   {
     label: `כשאת/ה בוחר/ת מתנה לבן/ת הזוג הכי חשוב לך`,
     name: "choosingImportanGiftForSpouse",
+    require: "true",
     input: {
       type: "radio",
       options: ["שתיהיה פרקטית", "שתשמח אותו/ה", "שתראה לו/ה חיבה מהצד שלך"],
@@ -374,6 +340,7 @@ export const stapeThreeDataList = [
     label: `מהם הגורמים להצלחה שהשגת`,
     subLabel: "לבחור פרוייקט מטרה הישג שהצלחת בו",
     name: "reasonsForTheSuocess",
+    require: "true",
     input: {
       type: "checkbox",
       options: [
@@ -393,6 +360,7 @@ export const stapeThreeDataList = [
     label: `כשאת/ה בוחר/ת מתנה לבן/ת הזוג הכי חשוב לך`,
     subLabel: "לבחור פרוייקט מטרה הישג שנכשלת בו",
     name: "mainCauseOfFailure",
+    require: "true",
     input: {
       type: "radio",
       options: [

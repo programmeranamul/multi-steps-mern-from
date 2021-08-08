@@ -6,11 +6,11 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
-import FormLabel from "@material-ui/core/FormLabel";
 import { questionForRelationDataList } from "./QueryData";
 import FormHeader from "./FormHeader";
 import Button from "@material-ui/core/Button";
 import FormHelperText from "@material-ui/core/FormHelperText";
+import { FormSubHeader } from "./FormSubHeader";
 
 const StapeTwo = ({
   value,
@@ -32,6 +32,7 @@ const StapeTwo = ({
   return (
     <>
       <FormHeader />
+      <FormSubHeader />
       <div className="mb-5">
         {questionForRelationDataList.map((datas) => (
           <div
@@ -141,13 +142,13 @@ const StapeTwo = ({
             ) : null}
           </div>
         ))}
-        <div className="mx-auto col-md-8 mt-3 d-flex">
+        <div className="mx-auto col-md-8 mt-3">
           <Button
             className="bg-white d-inline-block me-3 custom-color fw-bold fs-12"
             variant="outlined"
             onClick={previous}
           >
-            Previous
+            Back
           </Button>
           <Button
             className="bg-white d-inline-block custom-color fw-bold fs-12"
@@ -156,10 +157,6 @@ const StapeTwo = ({
           >
             Next
           </Button>
-
-          <div className="btn btn-custom ms-auto d-inline-block">
-            Clear Form
-          </div>
         </div>
       </div>
     </>

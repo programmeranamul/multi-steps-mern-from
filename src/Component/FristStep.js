@@ -9,16 +9,13 @@ import FormGroup from "@material-ui/core/FormGroup";
 import { genaredDataList } from "./QueryData";
 import FormHeader from "./FormHeader";
 import Button from "@material-ui/core/Button";
-import { useForm } from "react-hook-form";
 import FormHelperText from "@material-ui/core/FormHelperText";
 
-const GenarelDetails = ({
+const FristStep = ({
   value,
   handelChange,
   next,
   showError,
-  setShowError,
-  requiredList,
   setRequiredList,
 }) => {
   useEffect(() => {
@@ -26,28 +23,12 @@ const GenarelDetails = ({
     setRequiredList(reqiureds);
   }, []);
 
-  // const handelNext = () => {
-  //   const reqiuredList = genaredDataList.filter((datas) => datas.require);
-  //   const errorList = [];
-  //   for (let i = 0; i < reqiuredList.length; i++) {
-  //     const inputeName = reqiuredList[i].name;
-  //     const inputValue = value[inputeName];
-  //     if (inputValue.length < 1) {
-  //       errorList.push(inputeName);
-  //     }
-  //   }
-  //   if (errorList.length > 0) {
-  //     setShowError(errorList);
-  //   } else {
-  //     next();
-  //   }
-  // };
-
-  // console.log(showError);
-
   return (
     <>
-      <FormHeader />
+      <FormHeader
+        rtl1="אין תשובות לא נכונות, הכול נכון."
+        rtl2="מטרת השאלון למצוא את האדם שהכי מתאים לך מבחינת הצרכים והערכים שלך."
+      />
 
       <div className="mb-5">
         {genaredDataList.map((datas) => (
@@ -162,21 +143,18 @@ const GenarelDetails = ({
             ) : null}
           </div>
         ))}
-        <div className="mx-auto col-md-8 mt-3 d-flex">
+        <div className="mx-auto col-md-8 mt-3">
           <Button
-            className="bg-white d-inline-block"
+            className="bg-white d-inline-block custom-color fw-bold fs-12"
             variant="outlined"
             onClick={next}
           >
             Next
           </Button>
-          <div className="btn btn-custom ms-auto d-inline-block">
-            Clear Form
-          </div>
         </div>
       </div>
     </>
   );
 };
 
-export default GenarelDetails;
+export default FristStep;

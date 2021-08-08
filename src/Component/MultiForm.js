@@ -1,10 +1,12 @@
 import React from "react";
 import { useState } from "react";
 import { Alert } from "react-bootstrap";
-import GenarelDetails from "./GenarelDetails";
+import FristStep from "./FristStep";
 import { initaleData } from "./InitailDataAndFunc";
 import StapeTwo from "./StapeTwo";
 import StapeThree from "./StapeThree";
+import SubmitForm from "./SubmitForm";
+import axios from "axios";
 
 const MultiForm = () => {
   const [states, setStates] = useState(initaleData);
@@ -25,25 +27,46 @@ const MultiForm = () => {
     setStates({ ...states, step: step - 1 });
   };
 
-
-/////
-const handelNext = () => {  
-  const errorList = [];
-  for (let i = 0; i < requiredList.length; i++) {
-    const inputeName = requiredList[i].name;
-    const inputValue = value[inputeName];
-    if (inputValue.length < 1) {
-      errorList.push(inputeName);
+  /////
+  const handelNext = () => {
+    const errorList = [];
+    for (let i = 0; i < requiredList.length; i++) {
+      const inputeName = requiredList[i].name;
+      const inputValue = value[inputeName];
+      if (inputValue.length < 1) {
+        errorList.push(inputeName);
+      }
     }
-  }
-  if (errorList.length > 0) {
-    setShowError(errorList);
-  } else {
-    next();
-  }
-};
+    if (errorList.length > 0) {
+      setShowError(errorList);
+    } else {
+      next();
+    }
+  };
 
+  const handelSubmit = async () => {
+    const errorList = [];
+    for (let i = 0; i < requiredList.length; i++) {
+      const inputeName = requiredList[i].name;
+      const inputValue = value[inputeName];
+      if (inputValue.length < 1) {
+        errorList.push(inputeName);
+      }
+    }
+    if (errorList.length > 0) {
+      setShowError(errorList);
+    } else {
+      const res = await axios.post("http://localhost:8001/addData", value);
+      if (res.status === 201) {
+        next();
+      }
+    }
+  };
 
+  //createNexFrom
+  const createNexFrom = () => {
+    setStates(initaleData)
+  }
 
   // handel filed change
   const handelChange = (e) => {
@@ -94,12 +117,17 @@ const handelNext = () => {
     setStates({ ...states, [e.target.name]: e.target.value });
   };
 
-  console.log(requiredList)
- 
+  console.log(requiredList);
+
+  // const handelSubmit = async () => {
+  //   const res = await axios.post("http://localhost:8001/addData",value )
+  //   console.log(res)
+  //  }
+
   switch (step) {
-    case 2:
+    case 1:
       return (
-        <GenarelDetails
+        <FristStep
           value={value}
           handelChange={handelChange}
           next={handelNext}
@@ -109,7 +137,7 @@ const handelNext = () => {
           setRequiredList={setRequiredList}
         />
       );
-    case 1:
+    case 2:
       return (
         <StapeTwo
           value={value}
@@ -127,10 +155,16 @@ const handelNext = () => {
         <StapeThree
           value={value}
           handelChange={handelChange}
-          next={next}
           previous={previous}
+          showError={showError}
+          setShowError={setShowError}
+          requiredList={requiredList}
+          setRequiredList={setRequiredList}
+          handelSubmit={handelSubmit}
         />
       );
+    case 4:
+      return <SubmitForm createNexFrom={createNexFrom}/>;
     default:
       break;
   }
