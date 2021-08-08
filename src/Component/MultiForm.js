@@ -63,7 +63,7 @@ const MultiForm = () => {
     }
   };
 
-  //createNexFrom
+  // createNexFrom
   const createNexFrom = () => {
     setStates(initaleData)
   }
@@ -117,15 +117,11 @@ const MultiForm = () => {
     setStates({ ...states, [e.target.name]: e.target.value });
   };
 
-  console.log(requiredList);
-
-  // const handelSubmit = async () => {
-  //   const res = await axios.post("http://localhost:8001/addData",value )
-  //   console.log(res)
-  //  }
+  console.log(states);
+  
 
   switch (step) {
-    case 1:
+    case 3:
       return (
         <FristStep
           value={value}
@@ -150,7 +146,7 @@ const MultiForm = () => {
           setRequiredList={setRequiredList}
         />
       );
-    case 3:
+    case 1:
       return (
         <StapeThree
           value={value}
@@ -170,10 +166,10 @@ const MultiForm = () => {
   }
 
   return (
-    <div>
-      <Alert variant="danger">
+    <div className="container mt-4">
+      <div className="col-lg-8 mx-auto px-4"><Alert variant="danger">
         Something went wrong. Please Refresh this page
-      </Alert>
+      </Alert></div>
     </div>
   );
 };

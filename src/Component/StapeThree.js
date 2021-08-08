@@ -11,6 +11,7 @@ import FormHeader from "./FormHeader";
 import Button from "@material-ui/core/Button";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import { FormSubHeader } from "./FormSubHeader";
+import Inputs from "./Inputs/Inputs";
 
 const StapeThree = ({
   value,
@@ -29,10 +30,10 @@ const StapeThree = ({
     <>
       <FormHeader />
       <FormSubHeader />
-      <div className="mb-5">
+      {/* <div className="mb-5 container">
         {stapeThreeDataList.map((datas) => (
           <div
-            className={`col-md-8 p-4 form__header bg-white mx-auto mt-3 ${
+            className={`col-lg-8 p-4 form__header bg-white mx-auto mt-3 ${
               showError.find((err) => err === datas.name) && "border-red"
             }`}
             key={datas.label}
@@ -156,7 +157,14 @@ const StapeThree = ({
             Submit
           </Button>
         </div>
-      </div>
+      </div> */}
+      <Inputs
+        showError={showError}
+        datalist={stapeThreeDataList}
+        value={value}
+        handelChange={handelChange}
+        handelSubmit={handelSubmit}
+      />
     </>
   );
 };

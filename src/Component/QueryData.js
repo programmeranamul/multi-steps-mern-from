@@ -147,7 +147,7 @@ export const genaredDataList = [
 
 //step two
 
-export const questionForRelationDataList = [
+export const secondStepsDataList = [
   {
     label: "איך את/ה מפרגן/ת לבן/ת הזוג שלך",
     require: "true",
@@ -357,7 +357,7 @@ export const stapeThreeDataList = [
   },
   //mainCauseOfFailure
   {
-    label: `כשאת/ה בוחר/ת מתנה לבן/ת הזוג הכי חשוב לך`,
+    label: `מה הגורם המרכזי לכישלון שהיה לך`,
     subLabel: "לבחור פרוייקט מטרה הישג שנכשלת בו",
     name: "mainCauseOfFailure",
     require: "true",
@@ -607,7 +607,7 @@ export const stapeThreeDataList = [
   },
   // volunteerInTheCommunity
   {
-    label: `האם את/ה תורם כסף לצדקה`,
+    label: `האם את/ה מתנדב בקהילה`,
     name: "volunteerInTheCommunity",
     require: "true",
     input: {

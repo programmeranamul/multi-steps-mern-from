@@ -6,11 +6,12 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
-import { questionForRelationDataList } from "./QueryData";
+import { secondStepsDataList } from "./QueryData";
 import FormHeader from "./FormHeader";
 import Button from "@material-ui/core/Button";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import { FormSubHeader } from "./FormSubHeader";
+import Inputs from "./Inputs/Inputs";
 
 const StapeTwo = ({
   value,
@@ -23,7 +24,7 @@ const StapeTwo = ({
   setRequiredList,
 }) => {
   useEffect(() => {
-    const reqiureds = questionForRelationDataList.filter(
+    const reqiureds = secondStepsDataList.filter(
       (datas) => datas.require
     );
     setRequiredList(reqiureds);
@@ -33,10 +34,10 @@ const StapeTwo = ({
     <>
       <FormHeader />
       <FormSubHeader />
-      <div className="mb-5">
+      {/* <div className="mb-5 container">
         {questionForRelationDataList.map((datas) => (
           <div
-            className={`col-md-8 p-4 form__header bg-white mx-auto mt-3 ${
+            className={`form__header col-lg-8   mx-auto mt-4 p-4 bg-white ${
               showError.find((err) => err === datas.name) && "border-red"
             }`}
             key={datas.label}
@@ -158,7 +159,15 @@ const StapeTwo = ({
             Next
           </Button>
         </div>
-      </div>
+      </div> */}
+      <Inputs
+        showError={showError}
+        datalist={secondStepsDataList}
+        value={value}
+        handelChange={handelChange}
+        next={next}
+        previous = {previous}
+      />
     </>
   );
 };

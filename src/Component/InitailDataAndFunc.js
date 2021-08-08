@@ -1,3 +1,6 @@
+
+import { useState } from 'react';
+
 export const initaleData = {
   step: 1,
   firstName: "",
@@ -55,3 +58,11 @@ export const initaleData = {
   moreYouGive: "",
   whatWouldYouLikeToSeeHappen: "",
 };
+
+
+// const [states, setStates] = useState(initaleData);
+
+// //createNexFrom
+// export const createNexFrom = () => {
+//   setStates(initaleData)
+// }

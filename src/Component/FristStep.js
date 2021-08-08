@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import TextField from "@material-ui/core/TextField";
 import Checkbox from "@material-ui/core/Checkbox";
 import Radio from "@material-ui/core/Radio";
@@ -10,6 +10,7 @@ import { genaredDataList } from "./QueryData";
 import FormHeader from "./FormHeader";
 import Button from "@material-ui/core/Button";
 import FormHelperText from "@material-ui/core/FormHelperText";
+import Inputs from "./Inputs/Inputs";
 
 const FristStep = ({
   value,
@@ -30,10 +31,10 @@ const FristStep = ({
         rtl2="מטרת השאלון למצוא את האדם שהכי מתאים לך מבחינת הצרכים והערכים שלך."
       />
 
-      <div className="mb-5">
+      {/* <div className="mb-5 container">
         {genaredDataList.map((datas) => (
           <div
-            className={`col-md-8 p-4 form__header bg-white mx-auto mt-3 ${
+            className={` form__header col-lg-8   mx-auto mt-4 p-4 bg-white ${
               showError.find((err) => err === datas.name) && "border-red"
             }`}
             key={datas.label}
@@ -152,7 +153,14 @@ const FristStep = ({
             Next
           </Button>
         </div>
-      </div>
+      </div> */}
+      <Inputs
+        showError={showError}
+        datalist={genaredDataList}
+        value={value}
+        handelChange={handelChange}
+        next={next}
+      />
     </>
   );
 };
