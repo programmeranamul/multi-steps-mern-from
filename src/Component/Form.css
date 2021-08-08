@@ -24,6 +24,22 @@ input[type="date"]::-webkit-input-placeholder {
 .btn-custom:hover {
   background-color: rgba(181, 150, 238, 0.1) !important;
 }
-.fs-12{
+.fs-12 {
   font-size: 12px !important;
+}
+/* .control-row{
+  flex-direction: row !important;
+} */
+
+.error {
+  border: 1px solid red;
+}
+.MuiFormHelperText-root {
+  color: red !important;
+}
+.error .MuiInput-underline:before {
+  border-bottom: 1px solid red !important;
+}
+.border-red{
+  border: .2px solid #d93025 !important;
 }

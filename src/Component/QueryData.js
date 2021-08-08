@@ -174,6 +174,7 @@ export const genaredDataList = [
         "פודקאסט",
         "ספרי אודיו",
         "לא מאזין בכלל",
+        "other"
       ],
     },
   },

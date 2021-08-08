@@ -8,7 +8,6 @@ function App() {
   console.log(initaleData)
   return (
     <div className="App">
-    {/* <FormHeader /> */}
     <MultiForm />
     </div>
   );

@@ -18,7 +18,7 @@ const StapeThree = ({ value, handelChange, next, previous }) => {
       <div className="mb-5">
         {stapeThreeDataList.map((datas) => (
           <div
-            className="col-md-9 p-4 form__header bg-white mx-auto mt-3"
+            className="col-md-8 p-4 form__header bg-white mx-auto mt-3"
             key={datas.label}
           >
             <p className="mb-0">
@@ -50,22 +50,46 @@ const StapeThree = ({ value, handelChange, next, previous }) => {
                 }}
               />
             ) : datas?.input?.type === "radio" ? (
-              <FormControl component="fieldset">
-                <FormLabel component="legend">Gender</FormLabel>
+              <FormControl component="fieldset" className="mt-3 w-100">
                 <RadioGroup
                   aria-label="gender"
                   onChange={handelChange}
                   name={datas.name}
                   defaultValue={value[datas.name]}
+                  className={`${
+                    datas.verticale ? "flex-row align-items-end justify-content-around" : ""
+                  }`}
                 >
-                  {datas?.input?.options.map((option) => (
-                    <FormControlLabel
-                      key={option}
-                      value={option}
-                      control={<Radio />}
-                      label={option}
-                    />
-                  ))}
+                  {datas.sideOption1 && (
+                    <p className="mb-0 small pb-2">{datas.sideOption1}</p>
+                  )}
+                  <div>
+                    {datas?.input?.options.map((option) =>
+                      datas.verticale ? (
+                        <FormControlLabel
+                          key={option}
+                          value={option}
+                          control={<Radio />}
+                          label={option}
+                          labelPlacement="top"
+                          className="control-row"
+                        />
+                      ) : (
+                        <div>
+                          <FormControlLabel
+                          key={option}
+                          value={option}
+                          control={<Radio />}
+                          label={option}
+                        />
+                        </div>
+
+                      )
+                    )}
+                  </div>
+                  {datas.sideOption2 && (
+                    <p className="mb-0 small pb-2">{datas.sideOption2}</p>
+                  )}
                 </RadioGroup>
               </FormControl>
             ) : datas?.input?.type === "checkbox" ? (
@@ -88,7 +112,7 @@ const StapeThree = ({ value, handelChange, next, previous }) => {
             ) : null}
           </div>
         ))}
-        <div className="mx-auto col-md-9 mt-3 d-flex">
+        <div className="mx-auto col-md-8 mt-3 d-flex">
           <Button
             className="bg-white d-inline-block me-3 custom-color fw-bold fs-12"
             variant="outlined"
