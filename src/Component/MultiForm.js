@@ -22,7 +22,7 @@ const MultiForm = () => {
     setStates({ ...states, step: step - 1 });
   };
 
-  /////
+  //go next setps
   const handelNext = () => {
     const errorList = [];
     for (let i = 0; i < requiredList.length; i++) {
@@ -39,6 +39,7 @@ const MultiForm = () => {
     }
   };
 
+  // submit from
   const handelSubmit = async () => {
     const errorList = [];
     for (let i = 0; i < requiredList.length; i++) {
@@ -86,10 +87,9 @@ const MultiForm = () => {
         }
       }
     }
-
+  //if the fild is checkbox    
     if (e.target.type === "checkbox") {
       const namess = e?.target?.name;
-
       if (e.target.checked) {
         const found = states[namess].find(
           (element) => element === e.target.value
@@ -107,60 +107,10 @@ const MultiForm = () => {
         const filter = states[namess].filter((element) => element !== found);
         setStates({ ...states, [e.target.name]: filter });
       }
-
-      console.log(states);
-
       return;
     }
     setStates({ ...states, [e.target.name]: e.target.value });
   };
-
-  console.log(states);
-
-  // switch (step) {
-  //   case 1:
-  //     return (
-  //       <FristStep
-  //         value={value}
-  //         handelChange={handelChange}
-  //         next={handelNext}
-  //         showError={showError}
-  //         setShowError={setShowError}
-  //         requiredList={requiredList}
-  //         setRequiredList={setRequiredList}
-  //       />
-  //     );
-  //   case 2:
-  //     return (
-  //       <StapeTwo
-  //         value={value}
-  //         handelChange={handelChange}
-  //         next={handelNext}
-  //         previous={previous}
-  //         showError={showError}
-  //         setShowError={setShowError}
-  //         requiredList={requiredList}
-  //         setRequiredList={setRequiredList}
-  //       />
-  //     );
-  //   case 3:
-  //     return (
-  //       <StapeThree
-  //         value={value}
-  //         handelChange={handelChange}
-  //         previous={previous}
-  //         showError={showError}
-  //         setShowError={setShowError}
-  //         requiredList={requiredList}
-  //         setRequiredList={setRequiredList}
-  //         handelSubmit={handelSubmit}
-  //       />
-  //     );
-  //   case 4:
-  //     return <SubmitForm createNexFrom={createNexFrom} />;
-  //   default:
-  //     break;
-  // }
 
   return (
     <>
@@ -177,13 +127,6 @@ const MultiForm = () => {
         createNexFrom,
         handelNext
       )}
-      {/* <div className="container mt-4">
-        <div className="col-lg-8 mx-auto px-4">
-          <Alert variant="danger">
-            Something went wrong. Please Refresh this page
-          </Alert>
-        </div>
-      </div> */}
     </>
   );
 };

@@ -77,3 +77,6 @@ input[type="date"]::-webkit-input-placeholder {
 .sub_head_title {
   border-radius: 7px 7px 0 0;
 }
+.main_bg{
+  background-color: #F0EBFB;
+}

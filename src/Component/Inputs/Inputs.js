@@ -10,6 +10,12 @@ import Button from "@material-ui/core/Button";
 import FormHelperText from "@material-ui/core/FormHelperText";
 import { BiErrorCircle } from "react-icons/bi";
 
+// 1. map datalist
+// 2.check data type
+// 3. show input conditionaly
+// 4.show error message
+// 5.show buttons
+
 const Inputs = ({
   showError,
   datalist,
@@ -21,6 +27,7 @@ const Inputs = ({
 }) => {
   return (
     <div className="mb-5 container">
+      {/* map datalist */}
       {datalist.map((datas) => (
         <div
           className={` form__header col-lg-8   mx-auto mt-4 p-4 bg-white ${
@@ -32,6 +39,8 @@ const Inputs = ({
             {datas.label}{" "}
             {datas.require ? <span className="text-danger">*</span> : ""}
           </p>
+          {datas.subLabel && <p className="mb-0 fs-12">{datas.subLabel}</p>}
+          {/* if input type text */}
           {datas.input && datas.input.type === "text" ? (
             <div>
               <TextField
@@ -132,13 +141,17 @@ const Inputs = ({
                 />
               ))}
               <FormHelperText>
-                {showError.find((err) => err === datas.name) &&
-                   <span><BiErrorCircle className="fs-19"/> This filed is required</span>}
+                {showError.find((err) => err === datas.name) && (
+                  <span>
+                    <BiErrorCircle className="fs-19" /> This filed is required
+                  </span>
+                )}
               </FormHelperText>
             </FormGroup>
           ) : null}
         </div>
       ))}
+      {/* show buttons */}
       <div className="mx-auto col-md-8 mt-3">
         {previous && (
           <Button

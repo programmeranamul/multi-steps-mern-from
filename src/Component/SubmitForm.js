@@ -2,9 +2,6 @@ import React from "react";
 
 
 const SubmitForm = ({createNexFrom}) => {
-
- 
-
   return (
     <div className="container">
       <div className="col-lg-8   mx-auto mt-4 p-4 rounded roubded-7px before__border  bg-white">
