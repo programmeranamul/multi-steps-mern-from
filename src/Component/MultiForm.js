@@ -1,11 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { Alert } from "react-bootstrap";
-import FristStep from "./FristStep";
-import { initaleData } from "./InitailDataAndFunc";
-import StapeTwo from "./StapeTwo";
-import StapeThree from "./StapeThree";
-import SubmitForm from "./SubmitForm";
+import { initaleData, swithSteps } from "./InitailDataAndFunc";
 import axios from "axios";
 
 const MultiForm = () => {
@@ -56,17 +51,20 @@ const MultiForm = () => {
     if (errorList.length > 0) {
       setShowError(errorList);
     } else {
-      const res = await axios.post("http://localhost:8001/addData", value);
+      const res = await axios.post(
+        "https://guarded-inlet-71859.herokuapp.com/addData",
+        value
+      );
       if (res.status === 201) {
         next();
       }
     }
   };
 
-  // createNexFrom
+  // createNexFrom after submit from
   const createNexFrom = () => {
-    setStates(initaleData)
-  }
+    setStates(initaleData);
+  };
 
   // handel filed change
   const handelChange = (e) => {
@@ -118,59 +116,75 @@ const MultiForm = () => {
   };
 
   console.log(states);
-  
 
-  switch (step) {
-    case 3:
-      return (
-        <FristStep
-          value={value}
-          handelChange={handelChange}
-          next={handelNext}
-          showError={showError}
-          setShowError={setShowError}
-          requiredList={requiredList}
-          setRequiredList={setRequiredList}
-        />
-      );
-    case 2:
-      return (
-        <StapeTwo
-          value={value}
-          handelChange={handelChange}
-          next={handelNext}
-          previous={previous}
-          showError={showError}
-          setShowError={setShowError}
-          requiredList={requiredList}
-          setRequiredList={setRequiredList}
-        />
-      );
-    case 1:
-      return (
-        <StapeThree
-          value={value}
-          handelChange={handelChange}
-          previous={previous}
-          showError={showError}
-          setShowError={setShowError}
-          requiredList={requiredList}
-          setRequiredList={setRequiredList}
-          handelSubmit={handelSubmit}
-        />
-      );
-    case 4:
-      return <SubmitForm createNexFrom={createNexFrom}/>;
-    default:
-      break;
-  }
+  // switch (step) {
+  //   case 1:
+  //     return (
+  //       <FristStep
+  //         value={value}
+  //         handelChange={handelChange}
+  //         next={handelNext}
+  //         showError={showError}
+  //         setShowError={setShowError}
+  //         requiredList={requiredList}
+  //         setRequiredList={setRequiredList}
+  //       />
+  //     );
+  //   case 2:
+  //     return (
+  //       <StapeTwo
+  //         value={value}
+  //         handelChange={handelChange}
+  //         next={handelNext}
+  //         previous={previous}
+  //         showError={showError}
+  //         setShowError={setShowError}
+  //         requiredList={requiredList}
+  //         setRequiredList={setRequiredList}
+  //       />
+  //     );
+  //   case 3:
+  //     return (
+  //       <StapeThree
+  //         value={value}
+  //         handelChange={handelChange}
+  //         previous={previous}
+  //         showError={showError}
+  //         setShowError={setShowError}
+  //         requiredList={requiredList}
+  //         setRequiredList={setRequiredList}
+  //         handelSubmit={handelSubmit}
+  //       />
+  //     );
+  //   case 4:
+  //     return <SubmitForm createNexFrom={createNexFrom} />;
+  //   default:
+  //     break;
+  // }
 
   return (
-    <div className="container mt-4">
-      <div className="col-lg-8 mx-auto px-4"><Alert variant="danger">
-        Something went wrong. Please Refresh this page
-      </Alert></div>
-    </div>
+    <>
+      {swithSteps(
+        step,
+        value,
+        handelChange,
+        previous,
+        showError,
+        requiredList,
+        setRequiredList,
+        handelSubmit,
+        setShowError,
+        createNexFrom,
+        handelNext
+      )}
+      {/* <div className="container mt-4">
+        <div className="col-lg-8 mx-auto px-4">
+          <Alert variant="danger">
+            Something went wrong. Please Refresh this page
+          </Alert>
+        </div>
+      </div> */}
+    </>
   );
 };
 

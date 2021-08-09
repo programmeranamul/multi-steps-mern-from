@@ -8,6 +8,7 @@ import FormControl from "@material-ui/core/FormControl";
 import FormGroup from "@material-ui/core/FormGroup";
 import Button from "@material-ui/core/Button";
 import FormHelperText from "@material-ui/core/FormHelperText";
+import { BiErrorCircle } from "react-icons/bi";
 
 const Inputs = ({
   showError,
@@ -37,8 +38,11 @@ const Inputs = ({
                 id="standard-error-helper-text"
                 label="Your Answer"
                 helperText={
-                  showError.find((err) => err === datas.name) &&
-                  "This filed is required"
+                  showError.find((err) => err === datas.name) && (
+                    <span>
+                      <BiErrorCircle className="fs-19" /> This filed is required
+                    </span>
+                  )
                 }
                 className={`w-50 ${
                   showError.find((err) => err === datas.name) && "error"
@@ -104,8 +108,11 @@ const Inputs = ({
                 )}
               </RadioGroup>
               <FormHelperText>
-                {showError.find((err) => err === datas.name) &&
-                  "This filed is required"}
+                {showError.find((err) => err === datas.name) && (
+                  <span>
+                    <BiErrorCircle className="fs-19" /> This filed is required
+                  </span>
+                )}
               </FormHelperText>
             </FormControl>
           ) : datas?.input?.type === "checkbox" ? (
@@ -126,7 +133,7 @@ const Inputs = ({
               ))}
               <FormHelperText>
                 {showError.find((err) => err === datas.name) &&
-                  "This filed is required"}
+                   <span><BiErrorCircle className="fs-19"/> This filed is required</span>}
               </FormHelperText>
             </FormGroup>
           ) : null}

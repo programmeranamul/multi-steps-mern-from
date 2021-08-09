@@ -1,10 +1,14 @@
-.form__header, .roubded-7px {
+.form__header,
+.roubded-7px {
   border-radius: 7px;
 }
 .font-14 {
   font-size: 14px;
 }
-.fs-12{
+.fs-19 {
+  font-size: 19px !important;
+}
+.fs-12 {
   font-size: 12px;
 }
 .fw-600 {
@@ -67,10 +71,9 @@ input[type="date"]::-webkit-input-placeholder {
   top: 0;
   border-top-right-radius: 9px;
 }
-.custom-bg{  
+.custom-bg {
   background-color: rgb(103, 58, 183) !important;
-  
 }
-.sub_head_title{
-  border-radius: 7px 7px 0 0 ;
+.sub_head_title {
+  border-radius: 7px 7px 0 0;
 }
